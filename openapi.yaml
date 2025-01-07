@@ -1,0 +1,117 @@
+openapi: 3.0.0
+info:
+  title: API para consulta de ordenes
+  version: 1.0.0
+servers:
+  - url: https://us-central1-smart-display-445314-g5.cloudfunctions.net/apiHttp  # Reemplazar con la URL de tu Cloud Function
+    description: El servidor que aloja la API
+
+# Agregar seguridad global
+security:
+  - bearerAuth: []
+
+paths:
+  /buscarOrden:
+    post:
+      security:
+        - bearerAuth: []
+      summary: Consulta una orden por id_evento y orden_compra
+      description: Busca una orden específica en la base de datos
+      parameters:
+        - in: header
+          name: auth-token
+          schema:
+            type: string
+          required: true
+          description: Token de autenticación requerido
+          example: "tu-token-secreto"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id_evento:
+                  type: integer
+                  description: Identificador del evento
+                  example: 1
+                orden_compra:
+                  type: integer
+                  description: Identificador de la orden de compra
+                  example: 1
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Datos de la orden encontrada
+                  status:
+                    type: integer
+                    description: Código de estado HTTP
+        '400':
+          description: Solicitud incorrecta
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+                    description: Mensaje de error
+                  status:
+                    type: integer
+                    description: Código de estado HTTP
+        '403':
+          description: Acceso denegado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+                    description: Mensaje de error
+                  status:
+                    type: integer
+                    description: Código de estado HTTP
+        '404':
+          description: Orden no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+                    description: Mensaje de error
+                  status:
+                    type: integer
+                    description: Código de estado HTTP
+        '405':
+          description: Método no permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+                    description: Mensaje de error
+                  status:
+                    type: integer
+                    description: Código de estado HTTP
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: auth-token
+      in: header
+      description: Token de autenticación para acceder a la API
+

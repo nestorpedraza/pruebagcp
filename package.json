@@ -1,0 +1,25 @@
+{
+    "name": "prueba-domina-node-gcp",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "npx functions-framework --target=apiHttp",
+        "dev": "npx functions-framework --target=apiHttp --port=8080 --signature-type=http",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@google-cloud/functions-framework": "^3.4.5",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express-rate-limit": "^7.5.0",
+        "helmet": "^8.0.0",
+        "hpp": "^0.2.3",
+        "pg": "^8.13.1",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1",
+        "xss-clean": "^0.1.4",
+        "yamljs": "^0.3.0"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
+}
