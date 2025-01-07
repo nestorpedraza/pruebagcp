@@ -14,7 +14,7 @@ Este proyecto es una función HTTP de Google Cloud Functions que valida un token
 2. ejecutar el comando code .env
 3. agregar al archivo .env y .env.yaml y agregar        variables de entorno
 
-# Variables de Entorno .env
+## Variables de Entorno .env
 ACCESS_TOKEN = rnohxyEaSSuZceeLw9OBW7fXldOG05HEgkeK3N
 
 DB_USER = postgres
@@ -27,13 +27,19 @@ DB_PASSWORD = passwordBD
 
 DB_PORT = 5432
 
-Variables de Entorno .env.yaml
+## Variables de Entorno .env.yaml
 ACCESS_TOKEN: "rnohxyEaSSuZceeLw9OBW7fXldOG05HEgkeK3N"
+
 DB_USER: "postgres"
+
 DB_HOST: "localhost"
+
 DB_NAME: "nombreBD"
+
 DB_PASSWORD: "passwordBD"
+
 DB_PORT: "5432"
+
 DB_SSL: "true"
 
 ## Despliegue
