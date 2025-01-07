@@ -3,7 +3,7 @@ info:
   title: API para consulta de ordenes
   version: 1.0.0
 servers:
-  - url: https://us-central1-smart-display-445314-g5.cloudfunctions.net/apiHttp  # Reemplazar con la URL de tu Cloud Function
+  - url: /  # Reemplazar con la URL de tu Cloud Function
     description: El servidor que aloja la API
 
 # Agregar seguridad global
@@ -51,9 +51,11 @@ paths:
                   data:
                     type: object
                     description: Datos de la orden encontrada
+                    example: {"id_orden": 1,"id_evento": 1,"numero_orden": "ORD-2024-001","fecha_compra": "2025-01-06T22:05:40.980Z","cantidad_boletos": 2,"precio_total": "150.00","estado_pago": "completado","email_comprador": "juan@email.com","nombre_comprador": "Juan Pérez","metodo_pago": "tarjeta","estado_orden": "confirmado","nombre": "Concierto Rock en Vivo","fecha_evento": "2024-06-16T01:00:00.000Z","lugar": "Arena Ciudad","capacidad": 5000,"precio_base": "75.00","estado": "activo","descripcion": "Gran concierto de rock con bandas locales","categoria": "música","created_at": "2025-01-06T22:05:40.980Z"}
                   status:
                     type: integer
                     description: Código de estado HTTP
+                    example: 200
         '400':
           description: Solicitud incorrecta
           content:
@@ -64,9 +66,11 @@ paths:
                   data:
                     type: string
                     description: Mensaje de error
+                    example: Solicitud incorrecta
                   status:
                     type: integer
                     description: Código de estado HTTP
+                    example: 400
         '403':
           description: Acceso denegado
           content:
@@ -77,9 +81,11 @@ paths:
                   data:
                     type: string
                     description: Mensaje de error
+                    example: Acceso denegado
                   status:
                     type: integer
                     description: Código de estado HTTP
+                    example: 403
         '404':
           description: Orden no encontrada
           content:
@@ -90,9 +96,11 @@ paths:
                   data:
                     type: string
                     description: Mensaje de error
+                    example: Orden no encontrada
                   status:
                     type: integer
                     description: Código de estado HTTP
+                    example: 404
         '405':
           description: Método no permitido
           content:
@@ -103,9 +111,11 @@ paths:
                   data:
                     type: string
                     description: Mensaje de error
+                    example: Método no permitido
                   status:
                     type: integer
                     description: Código de estado HTTP
+                    example: 405
 
 components:
   securitySchemes:
