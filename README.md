@@ -12,19 +12,31 @@ Este proyecto es una función HTTP de Google Cloud Functions que valida un token
 
 1. Clona el repositorio:
 2. ejecutar el comando code .env
-3. agregar al archivo .env
+3. agregar al archivo .env y .env.yaml y agregar        variables de entorno
+
+# Variables de Entorno .env
 ACCESS_TOKEN = rnohxyEaSSuZceeLw9OBW7fXldOG05HEgkeK3N
-DB_USER =  postgres
+
+DB_USER = postgres
+
 DB_HOST = localhost
+
 DB_NAME = nombreBD
+
 DB_PASSWORD = passwordBD
+
 DB_PORT = 5432
 
-4. ejecutar el comando: node --env-file .env index.js
+Variables de Entorno .env.yaml
+ACCESS_TOKEN: "rnohxyEaSSuZceeLw9OBW7fXldOG05HEgkeK3N"
+DB_USER: "postgres"
+DB_HOST: "localhost"
+DB_NAME: "nombreBD"
+DB_PASSWORD: "passwordBD"
+DB_PORT: "5432"
+DB_SSL: "true"
 
-    
 ## Despliegue
-
 1. Asegúrate de tener el SDK instalado y estar autenticado con: gcloud auth login
 2. Selecciona el proyecto: gcloud config set project TU_ID_PROYECTO
 3. comentar la linea: require('dotenv').config(); en el index.js
@@ -44,5 +56,4 @@ DB_SSL: "true"
 
 4. Para verificar el despliegue: gcloud functions describe apiHttp
 
-5. Para obtener la URL de la función: gcloud functions describe apiHttp --format='get(httpsTrigger.url)'
 

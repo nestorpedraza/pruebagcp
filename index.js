@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); // comentar esta línea para desplegar en GCP
 const functions = require('@google-cloud/functions-framework');
 const { Pool } = require('pg');
 const express = require('express');
