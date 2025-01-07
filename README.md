@@ -11,8 +11,9 @@ Este proyecto es una función HTTP de Google Cloud Functions que valida un token
 ## Instalación
 
 1. Clona el repositorio:
-2. ejecutar el comando code .env
-3. agregar al archivo .env y .env.yaml y agregar        variables de entorno
+2. npm install
+3. ejecutar el comando code .env
+4. agregar al archivo .env y .env.yaml y agregar        variables de entorno
 
 ## Variables de Entorno .env
 ACCESS_TOKEN = rnohxyEaSSuZceeLw9OBW7fXldOG05HEgkeK3N
@@ -49,17 +50,9 @@ DB_SSL: "true"
 3. Despliega la función:
     gcloud functions deploy apiHttp --runtime nodejs20 --trigger-http --allow-unauthenticated --region us-central1 --env-vars-file .env.yaml
 
-Notas importantes:
+## Notas importantes:
 
 apiHttp debe coincidir con el nombre de tu función en index.js
-Convierte tus variables de .env a .env.yaml para GCP: ACCESS_TOKEN: "TU_TOKEN_DE_VALIDACION"
-DB_USER: "postgres"
-DB_HOST: "localhost"
-DB_NAME: "nombrebd"
-DB_PASSWORD: "password"
-DB_PORT: "5432"
-DB_SSL: "true"
 
 4. Para verificar el despliegue: gcloud functions describe apiHttp
-
 
