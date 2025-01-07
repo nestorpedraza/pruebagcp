@@ -47,12 +47,12 @@ DB_SSL: "true"
 1. Asegúrate de tener el SDK instalado y estar autenticado con: gcloud auth login
 2. Selecciona el proyecto: gcloud config set project TU_ID_PROYECTO
 3. comentar la linea: require('dotenv').config(); en el index.js
-3. Despliega la función:
+4. Despliega la función:
     gcloud functions deploy apiHttp --runtime nodejs20 --trigger-http --allow-unauthenticated --region us-central1 --env-vars-file .env.yaml
+5. Para verificar el despliegue: gcloud functions describe apiHttp
 
 ## Notas importantes:
-
 apiHttp debe coincidir con el nombre de tu función en index.js
 
-4. Para verificar el despliegue: gcloud functions describe apiHttp
+
 
